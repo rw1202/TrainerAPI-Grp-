@@ -17,6 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.rest.TrainerEndpoint;
 import com.qa.TrainerAPI.service.business.TrainerService;
+import com.qa.TrainerAPI.service.business.TrainerServiceImpl;
 
 
 
@@ -27,11 +28,11 @@ public class TrainerEndpointTest {
 	public Trainee trainee;
 	public List<Trainee> traineeList;
 	
-	@InjectMocks
-	private TrainerEndpoint trainerEndpoint;
 	
-	@Mock
-	private TrainerService service;
+
+	
+	@InjectMocks
+	private TrainerServiceImpl service;
 	
 	@Before
 	public void add(){
@@ -49,7 +50,7 @@ public class TrainerEndpointTest {
 	
 		@Test
 		public void getTraineeTest() {
-			when(service.get(111l)).thenReturn(trainee);
+			
 			assertEquals(traineeList.get(0), service.get(111l));
 		
 		}

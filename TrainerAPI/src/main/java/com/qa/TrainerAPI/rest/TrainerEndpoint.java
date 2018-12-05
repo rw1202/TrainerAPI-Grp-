@@ -36,11 +36,16 @@ public class TrainerEndpoint {
 		}
 
 		@GetMapping("${URL.method.getTrainee}")
-		public Trainee getAccount(@PathVariable Long Id) {
+		public Trainee getTrainee(@PathVariable Long Id) {
 			return service.get(Id);
 		}
 
 	
 	}
+	
+		
 	}
+
+	
+	
 
