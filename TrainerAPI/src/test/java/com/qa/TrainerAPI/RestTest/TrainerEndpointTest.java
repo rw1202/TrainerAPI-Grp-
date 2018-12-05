@@ -1,6 +1,8 @@
 package com.qa.TrainerAPI.RestTest;
 
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -30,5 +32,13 @@ public class TrainerEndpointTest {
 		trainee.setLastName("lastname");
 		trainee.setTraineeId(111);
 		
+		Trainee traineeToBeAdded = new Trainee();
+		traineeToBeAdded.setFirstName("firstname");
+		traineeToBeAdded.setLastName("lastName");
+		traineeToBeAdded.setTraineeId(111);
+		
+		when(service.add(traineeToBeAdded)).thenReturn(trainee);
+		Trainee addedTrainee = traineeEndpoint.addTrainee(traineeToBeAdded);
+		assertEquals(addedTrainee, trainee);
 	}
 }
