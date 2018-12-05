@@ -53,7 +53,7 @@ public class TrainerEndpointTest {
 			
 			assertEquals(traineeList.get(0), service.get(111l));
 		
-		}
+		} 
 	
 	}
 
