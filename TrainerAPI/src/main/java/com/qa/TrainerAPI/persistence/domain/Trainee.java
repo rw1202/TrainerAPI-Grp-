@@ -4,8 +4,11 @@ public class Trainee {
 
 	private String firstName;
 	private String lastName;
-	private String traineeId;
+	private Long traineeId;
 	
+	public Trainee(String firstName, String lastName, long traineeId) {
+		
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -18,10 +21,10 @@ public class Trainee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getTraineeId() {
+	public Long getTraineeId() {
 		return traineeId;
 	}
-	public void setTraineeId(String traineeId) {
+	public void setTraineeId(Long traineeId) {
 		this.traineeId = traineeId;
 	}
 
