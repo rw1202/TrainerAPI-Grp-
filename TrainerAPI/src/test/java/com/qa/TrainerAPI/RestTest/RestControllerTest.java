@@ -25,8 +25,6 @@ public class RestControllerTest {
 
 	private Optional<Trainee> trainee;
 
-	@Autowired
-	private MockMvc mockMvc;
 
 	@MockBean
 	TraineeService service;
@@ -49,15 +47,6 @@ public class RestControllerTest {
 	public void getTrainee_shouldReturnTrainee() {
 		BDDMockito.given(service.get(111l)).willReturn(trainee);
 
-		try {
-			mockMvc.perform(MockMvcRequestBuilders.get(":8081/trainee/111l"))
-					.andExpect(MockMvcResultMatchers.status().isOk())
-					.andExpect(MockMvcResultMatchers.jsonPath("firstName").value("firstName"))
-					.andExpect(MockMvcResultMatchers.jsonPath("lastName").value("firstName"));
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-	}
 
 }
+	}

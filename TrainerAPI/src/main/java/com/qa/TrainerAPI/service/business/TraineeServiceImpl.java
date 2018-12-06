@@ -17,8 +17,8 @@ public class TraineeServiceImpl implements TraineeService {
 //	@Autowired
 //	private APICaller external;
 
-	public void setRepo(TraineeRepository persist) {
-		this.traineeRepo = persist;
+	public void setRepo(TraineeRepository traineeRepo) {
+		this.traineeRepo = traineeRepo;
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public Optional<Trainee> get(Long traineeId) {
-		return null;
+		return traineeRepo.findById(traineeId);
 	}
 
 }
