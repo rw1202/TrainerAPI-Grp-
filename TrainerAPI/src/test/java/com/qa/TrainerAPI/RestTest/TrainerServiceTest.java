@@ -1,19 +1,22 @@
 package com.qa.TrainerAPI.RestTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.persistence.repository.TraineeRepository;
 import com.qa.TrainerAPI.service.business.TraineeServiceImpl;
+
+
+
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class TrainerServiceTest {
@@ -22,7 +25,7 @@ public class TrainerServiceTest {
 	
 	private Optional<Trainee> aTrainee;
 
-	@MockBean
+	@Mock
 	TraineeRepository traineeRepo;
 
 	@Before
@@ -37,14 +40,15 @@ public class TrainerServiceTest {
 		aTrainee = Optional.of(traineeList);
 
 		aTrainee.get().setFirstName("firstName");
-		aTrainee.get().setLastName("LastName");
+		aTrainee.get().setLastName("lastName");
 		aTrainee.get().setTraineeId(111l);
 		
 
-		BDDMockito.given(traineeRepo.findById(111l)).willReturn(aTrainee);
+		Mockito.when(traineeRepo.findById(111l)).thenReturn(aTrainee);
+		
 
-		assertThat(service.get(111l).get().getTraineeId()).isEqualTo(111l);
-
+		Assert.assertEquals(service.get(111l).get().getTraineeId(), aTrainee.get().getTraineeId());
+		
 	}
 
 }
