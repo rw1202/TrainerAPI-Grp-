@@ -17,7 +17,9 @@ import com.qa.TrainerAPI.service.business.TraineeService;
 @WebMvcTest(TrainerEndpoint.class)
 public class RestControllerTest {
 
+	private Iterable<Trainee> traineeList;
 	private Optional<Trainee> trainee;
+	private Optional<Trainee> aTrainee;
 
 
 	@MockBean
@@ -28,7 +30,13 @@ public class RestControllerTest {
 
 		
 		Trainee traineeList = new Trainee();
+		aTrainee = Optional.of(traineeList);
 
+		aTrainee.get().setFirstName("secondName");
+		aTrainee.get().setLastName("penultimateName");
+		aTrainee.get().setTraineeId(112l);
+
+		
 		trainee = Optional.of(traineeList);
 
 		trainee.get().setFirstName("firstName");
@@ -43,4 +51,18 @@ public class RestControllerTest {
 
 
 }
+	
+	@Test
+	public void getAllTrainees_shouldReturnAllTrainees() {
+		
+		BDDMockito.given(service.getAll()).willReturn((Iterable<Trainee>) traineeList);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	}
