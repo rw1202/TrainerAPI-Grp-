@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +17,9 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.rest.TrainerEndpoint;
-import com.qa.TrainerAPI.service.business.TrainerService;
-import com.qa.TrainerAPI.service.business.TrainerServiceImpl;
+import com.qa.TrainerAPI.service.business.TraineeService;
+import com.qa.TrainerAPI.service.business.TraineeServiceImpl;
+
 
 
 
@@ -26,32 +28,40 @@ public class TrainerEndpointTest {
 	
 	
 	public Trainee trainee;
-	public List<Trainee> traineeList;
+	public ArrayList<Trainee> traineeList;
 	
 	
 
 	
 	@InjectMocks
-	private TrainerServiceImpl service;
+	private TraineeServiceImpl service;
 	
 	@Before
 	public void add(){
-	trainee = new Trainee("firstName", "lastName", (111l));
+	trainee = new Trainee();
+	trainee.setFirstName("firstName");
+	trainee.setLastName("lastName");
+	trainee.setTraineeId(111l);
 	traineeList = new ArrayList<Trainee>();
 	traineeList.add(trainee);
+	
 	}	
 	
 	@Before
 	public void init() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
-
+//	@Before
+//	public void manual() {
+//
+//		System.out.println(traineeList.get(0).toString());
+//		System.out.println(service.get(111l));
+//	}
 	
 		@Test
 		public void getTraineeTest() {
-			
-			assertEquals(traineeList.get(0), service.get(111l));
+			System.out.println(service.get(111l));
+			assertEquals(traineeList.get(0).toString(), service.get(111l).toString());
 		
 		} 
 	

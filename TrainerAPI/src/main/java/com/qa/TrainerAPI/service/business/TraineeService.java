@@ -2,12 +2,14 @@ package com.qa.TrainerAPI.service.business;
 
 
 
+import java.util.Optional;
+
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 
-public interface TrainerService {
+public interface TraineeService {
 
 	Iterable<Trainee> getAll();
 
-	Trainee get(Long Id);
+	Optional<Trainee> get(Long traineeId);
 
 }

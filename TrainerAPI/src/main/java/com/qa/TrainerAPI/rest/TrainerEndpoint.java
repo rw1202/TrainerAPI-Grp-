@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.qa.TrainerAPI.persistence.domain.Trainee;
-import com.qa.TrainerAPI.service.business.TrainerService;
+import com.qa.TrainerAPI.service.business.TraineeService;
+
 
 public class TrainerEndpoint {
 	
@@ -23,7 +24,7 @@ public class TrainerEndpoint {
 	public class AccountEndpoint {
 
 		@Autowired
-		private TrainerService service;
+		private TraineeService service;
 
 //		@GetMapping("${URL.method.processOffer}")
 //		public Trainer send(@PathVariable String accountNumber) {
@@ -36,8 +37,8 @@ public class TrainerEndpoint {
 		}
 
 		@GetMapping("${URL.method.getTrainee}")
-		public Trainee getTrainee(@PathVariable Long Id) {
-			return service.get(Id);
+		public Optional<Trainee> getTrainee(@PathVariable Long traineeId) {
+			return service.get(traineeId);
 		}
 
 	

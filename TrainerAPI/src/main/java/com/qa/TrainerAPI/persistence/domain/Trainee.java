@@ -1,12 +1,21 @@
 package com.qa.TrainerAPI.persistence.domain;
 
-public class Trainee {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Trainee {
+	
+	
+@Id
+@GeneratedValue
+	private Long traineeId;
 	private String firstName;
 	private String lastName;
-	private Long traineeId;
 	
-	public Trainee(String firstName, String lastName, long traineeId) {
+	
+	public Trainee() {
 		
 	}
 	public String getFirstName() {
@@ -27,5 +36,11 @@ public class Trainee {
 	public void setTraineeId(Long traineeId) {
 		this.traineeId = traineeId;
 	}
+	@Override
+	public String toString() {
+		return "Trainee [firstName=" + firstName + ", lastName=" + lastName + ", traineeId=" + traineeId + "]";
+	}
+	
+	
 
 }
