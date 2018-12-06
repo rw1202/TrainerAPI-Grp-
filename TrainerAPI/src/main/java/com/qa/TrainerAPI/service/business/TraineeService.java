@@ -9,7 +9,7 @@ import com.qa.TrainerAPI.persistence.domain.Trainee;
 
 public interface TraineeService {
 
-//	Iterable<Trainee> getAll();
+	Iterable<Trainee> getAll();
 
 	Optional<Trainee> get(Long traineeId);
 
