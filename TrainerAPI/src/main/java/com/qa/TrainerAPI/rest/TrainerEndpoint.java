@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.service.business.TraineeService;
 
-
+	@RequestMapping("${URL.base}")
+	@RestController
 public class TrainerEndpoint {
 	
 	
 
-	@RequestMapping("${URL.base}")
-	@RestController
-	public class AccountEndpoint {
+
+
 
 		@Autowired
 		private TraineeService service;
@@ -45,7 +45,7 @@ public class TrainerEndpoint {
 	}
 	
 		
-	}
+	
 
 	
 	

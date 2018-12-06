@@ -6,19 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qa.TrainerAPI.persistence.domain.Trainee;
-import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
+import com.qa.TrainerAPI.persistence.repository.TraineeRepository;
+
 
 @Service
 public class TraineeServiceImpl implements TraineeService{
 
 	@Autowired
-	private TrainerRepository trainerRepo;
+	private TraineeRepository traineeRepo;
 	
 //	@Autowired
 //	private APICaller external;
 	
-	public void setRepo(TrainerRepository persist) {
-		this.trainerRepo = persist;
+	public void setRepo(TraineeRepository persist) {
+		this.traineeRepo = persist;
 	}
 	
 	
@@ -31,7 +32,7 @@ public class TraineeServiceImpl implements TraineeService{
 
 	@Override
 	public Optional<Trainee> get(Long traineeId) {
-		return trainerRepo.findById(traineeId);
+		return traineeRepo.findById(traineeId);
 	}
 
 	

@@ -9,7 +9,7 @@ import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.persistence.domain.Trainer;
 
 @Repository
-public interface TrainerRepository extends JpaRepository<Trainee, Long> {
+public interface TraineeRepository extends JpaRepository<Trainee, Long> {
 
 //	Optional<Trainee> findById(Long Id);
 
