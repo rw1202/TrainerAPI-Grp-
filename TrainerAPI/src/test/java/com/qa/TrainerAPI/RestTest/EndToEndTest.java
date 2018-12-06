@@ -13,13 +13,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 public class EndToEndTest {
 	@Autowired
 	TestRestTemplate testRestTemplate;
 	
 	@Test
-	public void getReservation_shouldReturnReservationDetails() {
+	public void getTrainee_shouldtrainee() {
 		// Arrange
 		
 		// Act

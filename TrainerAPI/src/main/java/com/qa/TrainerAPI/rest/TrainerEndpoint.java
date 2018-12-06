@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
 import com.qa.TrainerAPI.service.business.TraineeService;
 
-@RequestMapping("${URL.base}")
+@RequestMapping("/trainee")
 @RestController
 public class TrainerEndpoint {
 
@@ -25,12 +25,16 @@ public class TrainerEndpoint {
 //			return service.prizeCheck(accountNumber);
 //		}
 
-	@GetMapping("${URL.method.getAllTrainees}")
-	public Iterable<Trainee> getAllTrainees() {
-		return service.getAll();
+//	@GetMapping("${URL.method.getAllTrainees}")
+//	public Iterable<Trainee> getAllTrainees() {
+//		return service.getAll();
+//	}
+	
+	public TrainerEndpoint(TraineeService service) {
+		this.service= service;
 	}
 
-	@GetMapping("${URL.method.getTrainee}")
+	@GetMapping("/getTrainee")
 	public Optional<Trainee> getTrainee(@PathVariable Long traineeId) {
 		return service.get(traineeId);
 	}
