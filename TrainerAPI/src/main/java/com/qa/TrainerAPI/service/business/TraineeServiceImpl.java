@@ -1,5 +1,7 @@
 package com.qa.TrainerAPI.service.business;
 
+
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class TraineeServiceImpl implements TraineeService {
 	@Override
 	public Iterable<Trainee> getAll() {
 
-		return null;
+		return traineeRepo.findAll();
 	}
 
 	@Override
