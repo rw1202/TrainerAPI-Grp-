@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import com.qa.TrainerAPI.persistence.domain.Trainee;
-import com.qa.TrainerAPI.persistence.repository.TraineeRepository;
+import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
 import com.qa.TrainerAPI.service.business.TraineeServiceImpl;
 
 
@@ -29,7 +29,7 @@ public class TrainerServiceTest {
 	private Optional<Trainee> bTrainee;
 
 	@Mock
-	TraineeRepository traineeRepo;
+	TrainerRepository traineeRepo;
 
 	@Before
 	public void set() throws Exception {

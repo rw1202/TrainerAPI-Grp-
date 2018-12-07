@@ -36,9 +36,9 @@ public class TrainerEndpoint {
 		this.service= service;
 	}
 
-	@GetMapping("/getTrainee")
-	public Optional<Trainee> getTrainee(@PathVariable Long traineeId) {
-		return service.get(traineeId);
+	@GetMapping("getTrainee/{Id}")
+	public Optional<Trainee> getTrainee(@PathVariable Long Id) {
+		return service.get(Id);
 	}
 
 }

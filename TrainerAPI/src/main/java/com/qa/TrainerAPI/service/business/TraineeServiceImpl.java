@@ -8,18 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qa.TrainerAPI.persistence.domain.Trainee;
-import com.qa.TrainerAPI.persistence.repository.TraineeRepository;
+import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
 
 @Service
 public class TraineeServiceImpl implements TraineeService {
 
 	@Autowired
-	private TraineeRepository traineeRepo;
+	private TrainerRepository traineeRepo;
 
 //	@Autowired
 //	private APICaller external;
 
-	public void setRepo(TraineeRepository traineeRepo) {
+	public void setRepo(TrainerRepository traineeRepo) {
 		this.traineeRepo = traineeRepo;
 	}
 

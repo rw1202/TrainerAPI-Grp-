@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -11,10 +12,11 @@ public class Trainee {
 	
 	
 @Id
-@GeneratedValue
-	private Long traineeId;
+@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long Id;
 	private String firstName;
 	private String lastName;
+	private Boolean flagged;
 	
 	
 	public Trainee() {
@@ -33,15 +35,25 @@ public class Trainee {
 		this.lastName = lastName;
 	}
 	public Long getTraineeId() {
-		return traineeId;
+		return Id;
 	}
-	public void setTraineeId(Long traineeId) {
-		this.traineeId = traineeId;
+	public void setTraineeId(Long Id) {
+		this.Id = Id;
+	}
+		
+	public Boolean getFlagged() {
+		return flagged;
+	}
+	public void setFlagged(Boolean flagged) {
+		this.flagged = flagged;
 	}
 	@Override
 	public String toString() {
-		return "Trainee [firstName=" + firstName + ", lastName=" + lastName + ", traineeId=" + traineeId + "]";
+		return "Trainee [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + ", flagged=" + flagged
+				+ "]";
 	}
+	
+	
 	
 	
 	
