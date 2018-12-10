@@ -14,9 +14,6 @@ public class TrainerServiceImpl implements TrainerService {
 	@Autowired
 	private TrainerRepository trainerRepo;
 
-//	@Autowired
-//	private APICaller external;
-
 	public void setRepo(TrainerRepository trainerRepo) {
 		this.trainerRepo = trainerRepo;
 	}
@@ -28,7 +25,7 @@ public class TrainerServiceImpl implements TrainerService {
 	}
 
 	public Trainer add(Trainer trainer) {
-		
+
 		return trainerRepo.save(trainer);
 	}
 
@@ -40,14 +37,16 @@ public class TrainerServiceImpl implements TrainerService {
 
 	public String update(Long trainerId, Trainer updatedTrainer) {
 		if (trainerRepo.findById(trainerId).isPresent()) {
-
 			Trainer oldTrainer = trainerRepo.findById(trainerId).get();
 			oldTrainer.setFirstName(updatedTrainer.getFirstName());
 			oldTrainer.setFirstName(updatedTrainer.getLastName());
 
 			trainerRepo.save(oldTrainer);
+			return "Trainer Updated";
 		}
-		return "Trainer Updated";
+		else {
+			return "Invalid Trainer ID";
+		}
 
 	}
 

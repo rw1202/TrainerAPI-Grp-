@@ -17,9 +17,9 @@ public class TrainerTest {
 	trainer.setLastName("lastName");
 	trainer.setTrainerId(1L);
 	
-	assertEquals(trainer.getFirstName(), "firstName");
-	assertEquals(trainer.getLastName(), "lastName");
-	Assert.assertEquals(trainer.getTrainerId(), Long.valueOf(1L));
+	assertEquals( "firstName", trainer.getFirstName());
+	assertEquals( "lastName", trainer.getLastName());
+	Assert.assertEquals( Long.valueOf(1L),trainer.getTrainerId());
 		
 		
 	}
@@ -32,7 +32,7 @@ public class TrainerTest {
 		trainer.setLastName("lastName");
 		trainer.setTrainerId(2L);
 		
-		assertEquals(trainer.toString(), "Trainer [firstName=firstName, lastName=lastName, trainerId=2]");
+		assertEquals( "Trainer [firstName=firstName, lastName=lastName, trainerId=2]", trainer.toString());
 	
 	} 
 		

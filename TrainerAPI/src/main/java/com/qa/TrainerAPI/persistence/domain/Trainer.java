@@ -15,7 +15,7 @@ public class Trainer {
 	private String lastName;
 
 	public Trainer() {
-
+//Reflection
 	}
 
 	public String getFirstName() {
