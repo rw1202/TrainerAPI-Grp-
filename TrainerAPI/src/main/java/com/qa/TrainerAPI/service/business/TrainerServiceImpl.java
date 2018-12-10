@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.qa.TrainerAPI.persistence.domain.Trainer;
 import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
+import com.qa.TrainerAPI.util.Constants;
 
 @Service
 public class TrainerServiceImpl implements TrainerService {
@@ -42,10 +43,10 @@ public class TrainerServiceImpl implements TrainerService {
 			oldTrainer.setFirstName(updatedTrainer.getLastName());
 
 			trainerRepo.save(oldTrainer);
-			return "Trainer Updated";
+			return Constants.TRAINER_UPD;
 		}
 		else {
-			return "Invalid Trainer ID";
+			return Constants.INVALID_MESSAGE;
 		}
 
 	}
