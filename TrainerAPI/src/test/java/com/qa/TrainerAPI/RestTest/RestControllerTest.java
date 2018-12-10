@@ -9,48 +9,43 @@ import org.mockito.BDDMockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.qa.TrainerAPI.persistence.domain.Trainee;
+import com.qa.TrainerAPI.persistence.domain.Trainer;
 import com.qa.TrainerAPI.rest.TrainerEndpoint;
-import com.qa.TrainerAPI.service.business.TraineeService;
+import com.qa.TrainerAPI.service.business.TrainerService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(TrainerEndpoint.class)
 public class RestControllerTest {
 
-	private Iterable<Trainee> traineeList;
-	private Optional<Trainee> trainee;
-	
-	@MockBean
-	TraineeService service;
+	private Iterable<Trainer> traineeList;
+	private Optional<Trainer> trainer;
 
+	@MockBean
+	TrainerService service;
 
 	@Before
 	public void start() {
 
-		Trainee traineeList = new Trainee();
-		trainee = Optional.of(traineeList);
+		Trainer trainerList = new Trainer();
+		trainer = Optional.of(trainerList);
 
-		trainee.get().setFirstName("firstName");
-		trainee.get().setLastName("lastName");
-		trainee.get().setTraineeId(111l);
+		trainer.get().setFirstName("firstName");
+		trainer.get().setLastName("lastName");
+		trainer.get().setTrainerId(111l);
 
 	}
 
 	@Test
 	public void getTrainee_shouldReturnTrainee() {
-		BDDMockito.given(service.get(111l)).willReturn(trainee);
-		
+		BDDMockito.given(service.get(111l)).willReturn(trainer);
 
-		
-	
 	}
 
 	@Test
 	public void getAllTrainees_shouldReturnAllTrainees() {
 
-		BDDMockito.given(service.getAll()).willReturn((Iterable<Trainee>) traineeList);
-	
-		}
+		BDDMockito.given(service.getAll()).willReturn((Iterable<Trainer>) traineeList);
 
 	}
 
+}

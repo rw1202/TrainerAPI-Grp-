@@ -1,8 +1,5 @@
 package com.qa.TrainerAPI.RestTest;
 
-
-
-
 import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -11,39 +8,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.qa.TrainerAPI.persistence.domain.Trainee;
-import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
 
+import com.qa.TrainerAPI.persistence.domain.Trainer;
+import com.qa.TrainerAPI.persistence.repository.TrainerRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class TrainerRepoTest {
-	
-	    private Optional<Trainee> aTrainee;
-	
-		@Autowired
-		TestEntityManager entityManager;
-		
-		@Autowired
-		TrainerRepository traineeRepo;
-		
-		@Test
-		public void getReservation_returnReservationDetails() {
-			
-			Trainee traineeList = new Trainee();
 
-			aTrainee = Optional.of(traineeList);
+	private Optional<Trainer> trainer;
 
-			aTrainee.get().setFirstName("firstName");
-			aTrainee.get().setLastName("lastName");
-			
-			
-			Trainee savedTrainee = entityManager.persistAndFlush(aTrainee.get());
-			Optional<Trainee> foundTrainee = traineeRepo.findById(aTrainee.get().getTraineeId());
-			
-			assertEquals(savedTrainee, foundTrainee.get());
-			
-			
-		}
+	@Autowired
+	TestEntityManager entityManager;
+
+	@Autowired
+	TrainerRepository traineeRepo;
+
+	@Test
+	public void getReservation_returnReservationDetails() {
+
+		Trainer traineeList = new Trainer();
+
+		trainer = Optional.of(traineeList);
+
+		trainer.get().setFirstName("firstName");
+		trainer.get().setLastName("lastName");
+
+		Trainer savedTrainee = entityManager.persistAndFlush(trainer.get());
+		Optional<Trainer> foundTrainee = traineeRepo.findById(trainer.get().getTrainerId());
+
+		assertEquals(savedTrainee, foundTrainee.get());
+
 	}
-
+}
