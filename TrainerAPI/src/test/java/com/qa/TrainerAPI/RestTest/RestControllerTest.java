@@ -31,13 +31,13 @@ public class RestControllerTest {
 
 		trainer.get().setFirstName("firstName");
 		trainer.get().setLastName("lastName");
-		trainer.get().setTrainerId(111l);
+		trainer.get().setUsername("first@mail.com");
 
 	}
 
 	@Test
 	public void getTrainee_shouldReturnTrainee() {
-		BDDMockito.given(service.get(111l)).willReturn(trainer);
+		BDDMockito.given(service.get("first@mail.com")).willReturn(trainer);
 
 	}
 

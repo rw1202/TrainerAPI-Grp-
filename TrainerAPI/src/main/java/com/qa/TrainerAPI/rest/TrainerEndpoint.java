@@ -29,8 +29,8 @@ public class TrainerEndpoint {
 	}
 
 	@GetMapping("${URL.method.getTrainer}/{Id}")
-	public Optional<Trainer> getTrainer(@PathVariable Long id) {
-		return service.get(id);
+	public Optional<Trainer> getTrainer(@PathVariable String username) {
+		return service.get(username);
 	}
 
 	@GetMapping("${URL.method.getAllTrainers}")
@@ -39,17 +39,17 @@ public class TrainerEndpoint {
 	}
 
 	@DeleteMapping("${URL.method.deleteTrainer}/{Id}")
-	public void deleteTrainer(@PathVariable Long Id) {
-		service.delete(Id);
+	public void deleteTrainer(@PathVariable String username) {
+		service.delete(username);
 	}
 
 	@PostMapping("${URL.method.addTrainer}")
-	public Trainer addTrainer(@RequestBody Trainer trainer) {
-		return service.add(trainer);
+	public String addTrainer(@RequestBody Trainer trainer, String password) {
+		return service.add(trainer, password);
 	}
 
 	@PutMapping("${URL.method.updateTrainer}")
-	public Trainer updateTrainer(@RequestBody Trainer trainer) {
-		return service.add(trainer);
+	public String updateTrainer(@RequestBody Trainer trainer, String password) {
+		return service.add(trainer, password);
 	}
 }

@@ -15,11 +15,11 @@ public class TrainerTest {
 	
 	trainer.setFirstName("firstName");
 	trainer.setLastName("lastName");
-	trainer.setTrainerId(1L);
+	trainer.setUsername("first@mail.com");
 	
 	assertEquals( "firstName", trainer.getFirstName());
 	assertEquals( "lastName", trainer.getLastName());
-	Assert.assertEquals( Long.valueOf(1L),trainer.getTrainerId());
+	Assert.assertEquals( String.valueOf("first@mail.com"),trainer.getUsername());
 		
 		
 	}
@@ -30,9 +30,9 @@ public class TrainerTest {
 		
 		trainer.setFirstName("firstName");
 		trainer.setLastName("lastName");
-		trainer.setTrainerId(2L);
+		trainer.setUsername("first@mail.com");
 		
-		assertEquals( "Trainer [firstName=firstName, lastName=lastName, trainerId=2]", trainer.toString());
+		assertEquals( "Trainer [firstName=firstName, lastName=lastName, first@mail.com=2]", trainer.toString());
 	
 	} 
 		
