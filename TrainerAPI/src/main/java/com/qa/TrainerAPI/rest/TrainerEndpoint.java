@@ -29,8 +29,8 @@ public class TrainerEndpoint {
 	}
 
 	@GetMapping("${URL.method.getTrainer}/{Id}")
-	public Optional<Trainer> getTrainer(@PathVariable Long Id) {
-		return service.get(Id);
+	public Optional<Trainer> getTrainer(@PathVariable Long id) {
+		return service.get(id);
 	}
 
 	@GetMapping("${URL.method.getAllTrainers}")
