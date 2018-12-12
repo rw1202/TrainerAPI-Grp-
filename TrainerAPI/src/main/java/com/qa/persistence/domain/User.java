@@ -1,5 +1,8 @@
 package com.qa.persistence.domain;
 
+
+
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeId;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -10,13 +13,13 @@ public abstract class User {
 
 	@Override
 	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", _id=" + _id + ", password=" + password
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", _id=" + userName + ", password=" + password
 				+ ", type=" + type + "]";
 	}
 
 	private String firstName;
 	private String lastName;
-	private String _id;
+	private String userName;
 	private String password;
 
 	@JsonTypeId
@@ -55,11 +58,11 @@ public abstract class User {
 	}
 
 	public String getUsername() {
-		return _id;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this._id = username;
+		this.userName = username;
 	}
 
 	public String getPassword() {
