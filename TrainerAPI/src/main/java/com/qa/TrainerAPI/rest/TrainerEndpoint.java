@@ -39,8 +39,9 @@ public class TrainerEndpoint {
 	}
 
 	@DeleteMapping("${URL.method.deleteTrainer}/{Id}")
-	public void deleteTrainer(@PathVariable String username) {
-		service.delete(username);
+	public String deleteTrainer(@PathVariable String username) {
+		return service.delete(username);
+		
 	}
 
 	@PostMapping("${URL.method.addTrainer}")

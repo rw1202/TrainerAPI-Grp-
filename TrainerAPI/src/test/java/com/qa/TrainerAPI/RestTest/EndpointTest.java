@@ -1,6 +1,7 @@
 package com.qa.TrainerAPI.RestTest;
 
 
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doAnswer;
 
@@ -34,7 +35,7 @@ public class EndpointTest {
 	
 
 	@Test
-	public void endPointTests_GetAll() {
+	public void endPointTest_GetAll() {
 		ArrayList<Trainer> trainerList = new ArrayList<Trainer>();
 		Trainer trainer1 = new Trainer();
 
@@ -47,7 +48,7 @@ public class EndpointTest {
 	}
 	
 	@Test
-	public void endPointTests_Get() {
+	public void endPointTest_Get() {
 		ArrayList<Trainer> trainerList = new ArrayList<Trainer>();
 		Trainer trainer1 = new Trainer();
 		Trainer trainer2 = new Trainer();
@@ -81,6 +82,13 @@ public class EndpointTest {
 	public void endPointTest_updateTrainer() {
 		Mockito.when(service.add(trainer1, "rob@mail.com")).thenReturn("Updated");
 		Assert.assertEquals("Updated", endpoints.updateTrainer(trainer1, "rob@mail.com"));
+	}
+	
+	@Test
+	public void endPointTest_deleteTrainer() {
+		Mockito.when(service.delete("rob@mail.com")).thenReturn("deleted");
+		
+		assertEquals("deleted", endpoints.deleteTrainer("rob@mail.com"));
 	}
 	
 	

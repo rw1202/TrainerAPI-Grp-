@@ -22,5 +22,6 @@ public class Constants {
 	public static final String SECURITY_API_METHOD_ADDUSER = "${SECURITY_API_METHOD_ADDUSER}";
 
 	public static final String REQUEST_QUEUED_MESSAGE = "Request placed on queue succesfully";
+	
 
 }
