@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import com.qa.TrainerAPI.persistence.domain.SecurityRequest;
 import com.qa.TrainerAPI.persistence.domain.Trainer;
 import com.qa.TrainerAPI.persistence.domain.User;
 import com.qa.TrainerAPI.persistence.domain.UserRequest;
@@ -29,8 +27,7 @@ public class TrainerServiceImpl implements TrainerService {
 
 	public String add(Trainer trainer, String password) {
 		producer.produce(trainer);
-		SecurityRequest thisRequest = new SecurityRequest(trainer, password);
-		apiCaller.put(Constants.SECURITY_API_URL + Constants.SECURITY_API_METHOD_ADDUSER, thisRequest);
+
 		return Constants.TRAINER_QUEUED_MESSAGE;
 	}
 
