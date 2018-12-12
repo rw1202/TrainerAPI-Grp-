@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
-import com.qa.TrainerAPI.persistence.domain.Trainer;
-import com.qa.TrainerAPI.persistence.domain.UserRequest;
+import com.qa.persistence.domain.Trainer;
+import com.qa.persistence.domain.UserRequest;
 
 @Component
 public class TrainerProducer {

@@ -3,30 +3,27 @@ package com.qa.TrainerAPI.RestTest;
 
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.doAnswer;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.stubbing.Answer;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.qa.TrainerAPI.persistence.domain.Trainer;
+
 import com.qa.TrainerAPI.rest.TrainerEndpoint;
 import com.qa.TrainerAPI.service.business.TrainerService;
+import com.qa.persistence.domain.Trainer;
 
 @RunWith(SpringRunner.class)
 
 public class EndpointTest {
 	private Trainer trainer1 = new Trainer();
-	private ArrayList<Trainer> trainerList = new ArrayList<Trainer>();
+
 	@Mock
 	TrainerService service;
 
@@ -74,14 +71,14 @@ public class EndpointTest {
 
 	
 		
-		Mockito.when(service.add(trainer1, "password")).thenReturn("Added");
-		assertEquals("Added",endpoints.addTrainer(trainer1, "password"));
+		Mockito.when(service.create(trainer1)).thenReturn("Added");
+		assertEquals("Added",endpoints.addTrainer(trainer1));
 	}
 	
 	@Test
 	public void endPointTest_updateTrainer() {
-		Mockito.when(service.add(trainer1, "rob@mail.com")).thenReturn("Updated");
-		Assert.assertEquals("Updated", endpoints.updateTrainer(trainer1, "rob@mail.com"));
+		Mockito.when(service.update("rob@mail.com", trainer1)).thenReturn("Updated");
+		Assert.assertEquals("Updated", endpoints.updateTrainer("rob@mail.com", trainer1));
 	}
 	
 	@Test

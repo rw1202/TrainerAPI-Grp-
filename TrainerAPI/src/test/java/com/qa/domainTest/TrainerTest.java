@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.qa.TrainerAPI.persistence.domain.Trainer;
+import com.qa.persistence.domain.Trainer;
 
 public class TrainerTest {
 
@@ -15,11 +15,16 @@ public class TrainerTest {
 	
 	trainer.setFirstName("firstName");
 	trainer.setLastName("lastName");
-	trainer.setUsername("first@mail.com");
+	trainer.setPassword("password");
+	trainer.setType("trainer");
+	trainer.setUsername("rob@mail.com");
 	
 	assertEquals( "firstName", trainer.getFirstName());
 	assertEquals( "lastName", trainer.getLastName());
-	Assert.assertEquals( String.valueOf("first@mail.com"),trainer.getUsername());
+	assertEquals("password", trainer.getPassword());
+	assertEquals("trainer", trainer.getType());
+	
+	Assert.assertEquals("rob@mail.com",trainer.getUsername());
 		
 		
 	}
@@ -30,9 +35,10 @@ public class TrainerTest {
 		
 		trainer.setFirstName("firstName");
 		trainer.setLastName("lastName");
-		trainer.setUsername("first@mail.com");
-		
-		assertEquals( "User [firstName=firstName, lastName=lastName, username=first@mail.com]", trainer.toString());
+		trainer.setPassword("password");
+		trainer.setType("trainer");
+		trainer.setUsername("rob@mail.com");
+		assertEquals( "User [firstName=firstName, lastName=lastName, _id=rob@mail.com, password=password, type=trainer]", trainer.toString());
 	
 	} 
 		

@@ -4,9 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.qa.TrainerAPI.persistence.domain.Trainer;
-import com.qa.TrainerAPI.persistence.domain.UserRequest;
-import com.qa.TrainerAPI.persistence.domain.UserRequest.requestType;
+import com.qa.persistence.domain.Trainer;
+import com.qa.persistence.domain.UserRequest;
+import com.qa.persistence.domain.UserRequest.requestType;
+
 
 public class UserRequestTest {
 	private Trainer trainer;

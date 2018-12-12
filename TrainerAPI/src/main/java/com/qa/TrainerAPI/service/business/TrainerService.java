@@ -2,7 +2,7 @@ package com.qa.TrainerAPI.service.business;
 
 import java.util.Optional;
 
-import com.qa.TrainerAPI.persistence.domain.Trainer;
+import com.qa.persistence.domain.Trainer;
 
 public interface TrainerService {
 
@@ -10,7 +10,7 @@ public interface TrainerService {
 
 	Optional<Trainer> get(String username);
 
-	String add(Trainer trainer, String password);
+	String create(Trainer trainer);
 
 	String delete(String username);
 
