@@ -3,7 +3,7 @@ package com.qa.TrainerAPI.util;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-import com.qa.TrainerAPI.persistence.domain.Trainer;
+import com.qa.persistence.domain.Trainer;
 
 @Component
 public class TrainerConsumer {
