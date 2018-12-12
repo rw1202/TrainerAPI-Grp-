@@ -1,6 +1,8 @@
 package com.qa.TrainerAPI.persistence.domain;
 
-public class Trainer {
+import org.springframework.data.annotation.TypeAlias;
 
+@TypeAlias("Trainer")
+public class Trainer extends User {
 
 }
