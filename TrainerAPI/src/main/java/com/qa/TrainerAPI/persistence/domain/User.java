@@ -14,6 +14,11 @@ public abstract class User {
 		this.firstName = firstName;
 	}
 
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + "]";
+	}
+
 	public String getLastName() {
 		return lastName;
 	}

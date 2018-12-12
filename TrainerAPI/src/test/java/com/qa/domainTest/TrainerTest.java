@@ -32,7 +32,7 @@ public class TrainerTest {
 		trainer.setLastName("lastName");
 		trainer.setUsername("first@mail.com");
 		
-		assertEquals( "Trainer [firstName=firstName, lastName=lastName, first@mail.com=2]", trainer.toString());
+		assertEquals( "User [firstName=firstName, lastName=lastName, username=first@mail.com]", trainer.toString());
 	
 	} 
 		
